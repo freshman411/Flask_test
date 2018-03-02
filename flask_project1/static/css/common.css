@@ -1,0 +1,15 @@
+.logo{
+    width: 100px;
+    height: 52px;
+    padding: 0;
+    margin-top: -16px;
+}
+
+.main{
+    background: #1b6d85;
+    width: 700px;
+    margin: 0 auto;             <!-- 居中 -->
+    overflow: hidden;
+
+    padding: 10px;
+}

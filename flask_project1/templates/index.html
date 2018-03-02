@@ -1,0 +1,30 @@
+{% extends 'common.html' %}
+{% block title %}
+    首页
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    <ul>
+        {% for article in result %}
+            <li >
+                <div class="avatar-group">
+                    <img src="{{ url_for('static',filename='images/article.jpg') }}" class="avatar">
+                </div>
+                <div class="article-group">
+                    <p class="article-title"><a href="{{ url_for('content',article_id=article.id ) }}">{{ article.title }}</a></p>
+                    <p class="article-content">{{ article.content }}</p>
+                </div>
+                <div class="article-info">
+                    <span class="article-author">{{ article.author.username }}</span>
+                    <span>{{ article.create_time }}</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

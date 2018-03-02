@@ -15,7 +15,7 @@ from functools import wraps
 def login_required(func):
     @wraps(func)
     def decorated_function(*args, **kwargs):
-        if session.get('user_id'):   #login_user['is_login'] == False:
+        if session.get('user_id'):   #验证session
             return func(*args, **kwargs)
         else:
             return redirect(url_for('login'))
@@ -41,8 +41,8 @@ def login():
         res = User.query.filter(User.username == uname).first()
         if res:
             if res.password == pwd:
-                session['user_id'] = res.id
-                return redirect(url_for('index')) #render_template('index.html')
+                session['user_id'] = res.id         #设置session
+                return redirect(url_for('index')) 
             else:
                 return '用户名密码错误'
         else:

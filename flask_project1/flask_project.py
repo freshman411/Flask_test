@@ -48,7 +48,7 @@ def login():
         else:
             return "用户不存在，请先注册"
 
-####注册视图函数
+####注册功能视图函数
 @app.route('/register/',methods=['GET','POST'])
 def register():
     if request.method == 'GET':
@@ -104,6 +104,7 @@ def content(article_id):
     res = Article.query.filter(Article.id==article_id).first()
     count = len(res.answer)
     return render_template('content.html',res=res,count=count)
+
 
 #问答评论视图函数
 @app.route('/answer/',methods=['POST'])

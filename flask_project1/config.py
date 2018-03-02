@@ -6,6 +6,7 @@ import os
 DEBUG=True
 SECRET_KEY = os.urandom(24)             #配置session
 
+#配置数据库连接信息
 #dialect+driver://<username>:<password>@<host>:<port>/<dbname>[?<options>]
 
 DIALECT = 'mysql'

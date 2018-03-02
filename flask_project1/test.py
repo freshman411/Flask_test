@@ -28,7 +28,6 @@ def login(uname,pwd):
         login_user["is_login"] = True
         login_user['user'] = uname
         manager()
-
     else:
         print ("invial username or password,please try again!")
 

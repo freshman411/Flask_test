@@ -33,6 +33,9 @@ class Anwser(db.Model):
     author_id = db.Column(db.Integer,db.ForeignKey(User.id))
     create_date = db.Column(db.DateTime,default=datetime.now())
 
-    article = db.relationship('Article',backref=db.backref('answer',order_by=create_date.desc()))
+    #表示将article字段属性映射到Article模型（表），通过Answer.article可查看Article表的内容，同样可通过Article.answer（backref设置的）查看Answer表的内容
+    article = db.relationship('Article',backref=db.backref('answer',order_by=create_date.desc()))   #查询时排序
+    #表示将author字段属性映射到User模型（表），通过Answer.author可查看User表的内容，同样可通过User.answer（backref设置的）查看Answer表的内容
     author  = db.relationship('User',backref=db.backref('answer'))
+    
 
